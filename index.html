@@ -57,15 +57,8 @@
       min-height: 72px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       gap: 20px;
-    }
-
-    .brand {
-      color: var(--text);
-      font-family: Georgia, serif;
-      font-size: 1.2rem;
-      font-weight: bold;
     }
 
     .nav-links {
@@ -99,11 +92,6 @@
       letter-spacing: -0.045em;
     }
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 1.15rem;
-    }
-
     .intro {
       max-width: 650px;
       margin-top: 28px;
@@ -113,14 +101,6 @@
     .hero p {
       max-width: 650px;
       margin-bottom: 18px;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-      margin-top: 28px;
-      font-size: 0.95rem;
     }
 
     section {
@@ -137,14 +117,6 @@
       color: var(--muted);
     }
 
-    .research-list {
-      padding-left: 22px;
-    }
-
-    .research-list li {
-      padding: 4px 0;
-    }
-
     footer {
       padding: 28px 0 40px;
       border-top: 1px solid var(--line);
@@ -154,10 +126,9 @@
 
     @media (max-width: 540px) {
       nav {
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: center;
-        padding: 18px 0;
+        min-height: 60px;
+        justify-content: flex-end;
+        padding: 12px 0;
       }
 
       .nav-links {
@@ -178,12 +149,7 @@
 <body>
   <header>
     <nav class="container">
-      <a class="brand" href="#home">Anupama Das</a>
-
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#academic">Academic profile</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -196,8 +162,8 @@
       <h1>Anupama Das</h1>
 
       <p class="intro">
-        I am a PhD research scholar in Statistics at the Indian Institute of
-        Technology Kanpur, supervised by
+        I am a PhD research scholar in Statistics at the
+        Indian Institute of Technology Kanpur, supervised by
         <a href="https://dvats.github.io/"
            target="_blank"
            rel="noopener noreferrer">Prof. Dootika Vats</a>.
@@ -217,77 +183,9 @@
       </p>
 
       <div class="links">
-        <a href="#research">Explore my research ↓</a>
         <a href="#contact">Get in touch →</a>
       </div>
     </div>
-
-    <section id="about">
-      <h2>About me</h2>
-
-      <p>
-        I am a PhD research scholar in Statistics at the
-        Indian Institute of Technology Kanpur, working under
-        the supervision of
-        <a href="https://dvats.github.io/"
-           target="_blank"
-           rel="noopener noreferrer">Prof. Dootika Vats</a>.
-      </p>
-
-      <p>
-        My research interests include Markov chain Monte Carlo,
-        importance sampling, and uncertainty quantification.
-        I am interested in the theory and development of
-        computational methods for statistical inference.
-      </p>
-    </section>
-
-    <section id="research">
-      <h2>Research interests</h2>
-
-      <p>
-        My research interests lie in computational statistics,
-        particularly Monte Carlo methods and uncertainty
-        quantification in statistical computation and inference.
-      </p>
-
-      <ul class="research-list">
-        <li>Markov chain Monte Carlo (MCMC)</li>
-        <li>Importance Sampling</li>
-        <li>Uncertainty Quantification</li>
-      </ul>
-    </section>
-
-    <section id="academic">
-      <h2>Academic profile</h2>
-
-      <p>
-        <strong>Doctoral research</strong><br>
-        PhD in Statistics<br>
-        Indian Institute of Technology Kanpur
-      </p>
-
-      <p>
-        <strong>Research supervisor</strong><br>
-        <a href="https://dvats.github.io/"
-           target="_blank"
-           rel="noopener noreferrer">Prof. Dootika Vats</a>
-      </p>
-
-      <p>
-        <strong>Previous education</strong><br>
-        <span class="placeholder">
-          Details to be added
-        </span>
-      </p>
-
-      <p>
-        <strong>Research and technical skills</strong><br>
-        <span class="placeholder">
-          Details to be added
-        </span>
-      </p>
-    </section>
 
     <section id="contact">
       <h2>Contact</h2>
@@ -299,9 +197,7 @@
 
       <p>
         Email:
-        <span class="placeholder">
-          Contact details to be added
-        </span>
+        <span class="placeholder">Contact details to be added</span>
       </p>
 
       <p>
