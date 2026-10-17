@@ -64,10 +64,13 @@
     /* Top navigation */
     header {
       border-bottom: 1px solid var(--line);
-      background: var(--background);
+      background: #DCE7DD;
       transition: background 0.25s ease;
     }
-
+    body.dark-mode header {
+      background: #26372E;
+      border-bottom-color: #39473F;
+    }
     nav {
       min-height: 64px;
       display: flex;
