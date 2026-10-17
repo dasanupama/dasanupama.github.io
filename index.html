@@ -4,25 +4,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academic website of Anupama Das, PhD research scholar in the Department of Statistics and Data Science at IIT Kanpur.">
+
+  <title>Anupama Das | PhD Research Scholar, IIT Kanpur</title>
+
+  <meta name="description"
+        content="Official academic website of Anupama Das, PhD research scholar in the Department of Statistics and Data Science at IIT Kanpur. Research interests include Markov chain Monte Carlo, importance sampling, and uncertainty quantification.">
+
+  <meta name="author" content="Anupama Das">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#FCF8F7">
-  <title>Anupama Das</title>
+
+  <!-- Replace YOUR-DOMAIN with your actual website URL -->
+  <link rel="canonical" href="https://YOUR-DOMAIN/">
+
+  <!-- Social sharing metadata -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Anupama Das | IIT Kanpur">
+  <meta property="og:description"
+        content="Academic website of Anupama Das, PhD research scholar in Statistics and Data Science at IIT Kanpur.">
+  <meta property="og:url" content="https://YOUR-DOMAIN/">
+  <meta property="og:image" content="https://YOUR-DOMAIN/picture.jpg">
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Anupama Das",
+      "url": "https://YOUR-DOMAIN/",
+      "image": "https://YOUR-DOMAIN/picture.jpg",
+      "jobTitle": "PhD Research Scholar",
+      "email": "anupamad23@iitk.ac.in",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Indian Institute of Technology Kanpur",
+        "url": "https://iitk.ac.in/"
+      },
+      "worksFor": {
+        "@type": "CollegeOrUniversity",
+        "name": "Indian Institute of Technology Kanpur"
+      },
+      "knowsAbout": [
+        "Markov chain Monte Carlo",
+        "Importance sampling",
+        "Uncertainty quantification",
+        "Statistical inference"
+      ]
+    }
+  }
+  </script>
+
+  <script>
+    // Apply the saved theme before rendering the page.
+    (function () {
+      try {
+        if (localStorage.getItem("anupama-theme") === "dark") {
+          document.documentElement.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // Continue normally if local storage is unavailable.
+      }
+    })();
+  </script>
 
   <style>
     :root {
       color-scheme: light;
       --background: #FCF8F7;
       --surface: #FFFFFF;
+      --header: #F1E2E4;
       --text: #3D3034;
       --muted: #85767A;
       --accent: #A56878;
       --line: #EADDE0;
     }
 
+    html.dark-mode,
     body.dark-mode {
       color-scheme: dark;
       --background: #251C20;
       --surface: #32252B;
+      --header: #32252B;
       --text: #F5EBEE;
       --muted: #C7B5BB;
       --accent: #D9A1B0;
@@ -35,6 +99,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 24px;
     }
 
     body {
@@ -42,7 +107,7 @@
       background: var(--background);
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+                   sans-serif;
       line-height: 1.8;
       transition: background 0.25s ease, color 0.25s ease;
     }
@@ -53,24 +118,29 @@
     }
 
     a:hover {
-      text-decoration: none;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
     }
 
     .container {
       width: min(900px, 88%);
-      margin: auto;
+      margin-inline: auto;
     }
 
-    /* Top navigation */
+    /* Navigation */
     header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       border-bottom: 1px solid var(--line);
-      background: #F1E2E4;
+      background: var(--header);
       transition: background 0.25s ease;
-    }
-
-    body.dark-mode header {
-      background: #32252B;
-      border-bottom-color: var(--line);
     }
 
     nav {
@@ -84,21 +154,25 @@
     .nav-links {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 24px;
       font-size: 0.92rem;
     }
 
     .nav-links a {
       color: var(--text);
+      transition: color 0.2s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
       color: var(--accent);
       text-decoration: none;
     }
 
     .theme-toggle {
       display: inline-flex;
+      flex-shrink: 0;
       align-items: center;
       justify-content: center;
       width: 40px;
@@ -109,7 +183,8 @@
       background: var(--surface);
       color: var(--text);
       cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease;
+      transition: background 0.2s ease,
+                  border-color 0.2s ease;
     }
 
     .theme-toggle:hover {
@@ -121,9 +196,10 @@
       height: 20px;
     }
 
-    /* Homepage layout */
+    /* Homepage */
     .hero {
       padding: 90px 0 80px;
+      scroll-margin-top: 70px;
     }
 
     .hero-layout {
@@ -156,10 +232,15 @@
     }
 
     /* Profile photograph */
+    .profile-column {
+      min-width: 0;
+    }
+
     .profile-photo {
       display: block;
-      width: 280px;
-      height: 280px;
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1;
       object-fit: cover;
       object-position: center;
       border-radius: 50%;
@@ -167,12 +248,13 @@
       margin-top: 60px;
     }
 
-    /* Email icon below photograph */
+    /* Email link */
     .social-links {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 30px;
+      max-width: 280px;
     }
 
     .icon-link {
@@ -203,13 +285,6 @@
       height: 25px;
     }
 
-    .icon-link:focus-visible,
-    .nav-links a:focus-visible,
-    .theme-toggle:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
-    }
-
     /* Footer */
     footer {
       padding: 28px 0 40px;
@@ -221,7 +296,13 @@
     /* Mobile layout */
     @media (max-width: 680px) {
       nav {
-        min-height: 56px;
+        min-height: 58px;
+        gap: 14px;
+      }
+
+      .nav-links {
+        gap: 16px;
+        font-size: 0.88rem;
       }
 
       .hero {
@@ -233,20 +314,42 @@
         gap: 30px;
       }
 
-      .profile-photo {
+      .profile-column {
         grid-row: 1;
+      }
+
+      .profile-photo {
         width: 200px;
-        height: 200px;
-        justify-self: start;
+        max-width: 100%;
         margin-top: 0;
       }
 
       .social-links {
         justify-content: flex-start;
+        margin-top: 20px;
       }
 
       h1 {
         font-size: clamp(2.6rem, 10vw, 3.5rem);
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        width: 90%;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .theme-toggle {
+        width: 36px;
+        height: 36px;
       }
     }
 
@@ -261,14 +364,20 @@
       .theme-toggle {
         transition: none;
       }
+
+      .icon-link:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <nav class="container">
+    <nav class="container" aria-label="Main navigation">
       <div class="nav-links">
+        <a href="#home" aria-current="page">Home / About</a>
+
         <a href="cv.pdf"
            target="_blank"
            rel="noopener noreferrer">CV</a>
@@ -282,7 +391,6 @@
         aria-pressed="false"
         title="Switch to dark mode">
 
-        <!-- Moon icon -->
         <svg id="theme-icon"
              xmlns="http://www.w3.org/2000/svg"
              viewBox="0 0 24 24"
@@ -292,18 +400,19 @@
              stroke-linecap="round"
              stroke-linejoin="round"
              aria-hidden="true">
-          <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>
+          <path d="M20.9 13A9 9 0 0 1 11 3.1
+                   9 9 0 1 0 20.9 13Z"/>
         </svg>
       </button>
     </nav>
   </header>
 
   <main class="container">
-    <div class="hero" id="home">
+    <section class="hero" id="home" aria-labelledby="page-title">
       <div class="hero-layout">
 
         <div class="hero-content">
-          <h1>Anupama Das</h1>
+          <h1 id="page-title">Anupama Das</h1>
 
           <p class="intro">
             I am a PhD research scholar in the
@@ -334,9 +443,10 @@
           <img
             class="profile-photo"
             src="picture.jpg"
-            alt="Anupama Das"
+            alt="Anupama Das, PhD research scholar at IIT Kanpur"
             width="280"
             height="280"
+            fetchpriority="high"
           >
 
           <div class="social-links">
@@ -344,6 +454,7 @@
                href="mailto:anupamad23@iitk.ac.in"
                aria-label="Email Anupama Das"
                title="Email me">
+
               <svg xmlns="http://www.w3.org/2000/svg"
                    viewBox="0 0 24 24"
                    fill="none"
@@ -360,12 +471,12 @@
         </div>
 
       </div>
-    </div>
+    </section>
   </main>
 
   <footer>
     <div class="container">
-      © 2026 Anupama Das
+      © <span id="copyright-year">2026</span> Anupama Das
     </div>
   </footer>
 
@@ -377,7 +488,8 @@
     );
 
     const moonIcon = `
-      <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>
+      <path d="M20.9 13A9 9 0 0 1 11 3.1
+               9 9 0 1 0 20.9 13Z"/>
     `;
 
     const sunIcon = `
@@ -392,23 +504,54 @@
       <path d="m19.07 4.93-1.42 1.42"/>
     `;
 
-    themeToggle.addEventListener("click", function () {
-      const isDark = document.body.classList.toggle("dark-mode");
-
+    function updateThemeButton(isDark) {
       themeToggle.setAttribute("aria-pressed", String(isDark));
-      themeToggle.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
-      );
-      themeToggle.setAttribute(
-        "title",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
-      );
+
+      const label = isDark
+        ? "Switch to light mode"
+        : "Switch to dark mode";
+
+      themeToggle.setAttribute("aria-label", label);
+      themeToggle.setAttribute("title", label);
 
       themeIcon.innerHTML = isDark ? sunIcon : moonIcon;
 
-      themeColor.content = isDark ? "#251C20" : "#FCF8F7";
+      themeColor.setAttribute(
+        "content",
+        isDark ? "#251C20" : "#FCF8F7"
+      );
+    }
+
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle("dark-mode", isDark);
+      document.body.classList.toggle("dark-mode", isDark);
+      updateThemeButton(isDark);
+    }
+
+    // Initialize the controls to match the saved theme.
+    applyTheme(
+      document.documentElement.classList.contains("dark-mode")
+    );
+
+    themeToggle.addEventListener("click", function () {
+      const isDark =
+        !document.documentElement.classList.contains("dark-mode");
+
+      applyTheme(isDark);
+
+      try {
+        localStorage.setItem(
+          "anupama-theme",
+          isDark ? "dark" : "light"
+        );
+      } catch (error) {
+        // Theme still works for the current page.
+      }
     });
+
+    // Keep the copyright year current.
+    document.getElementById("copyright-year").textContent =
+      new Date().getFullYear();
   </script>
 </body>
 </html>
