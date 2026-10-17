@@ -48,26 +48,6 @@
       margin: auto;
     }
 
-    header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(251, 250, 248, 0.96);
-    }
-
-    nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 0.9rem;
-    }
-
     .hero {
       padding: 100px 0 80px;
     }
@@ -80,13 +60,10 @@
       text-transform: uppercase;
     }
 
-    h1, h2 {
+    h1 {
       font-family: Georgia, "Times New Roman", serif;
       font-weight: 400;
       line-height: 1.25;
-    }
-
-    h1 {
       margin: 16px 0;
       font-size: clamp(2.7rem, 7vw, 4.5rem);
       letter-spacing: -0.045em;
@@ -103,18 +80,37 @@
       margin-bottom: 18px;
     }
 
-    section {
-      padding: 52px 0;
-      border-top: 1px solid var(--line);
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 28px;
     }
 
-    h2 {
-      margin: 0 0 22px;
-      font-size: 2rem;
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--accent);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      transition: background 0.2s ease,
+                  color 0.2s ease,
+                  border-color 0.2s ease;
     }
 
-    .placeholder {
-      color: var(--muted);
+    .icon-link:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .icon-link svg {
+      width: 19px;
+      height: 19px;
     }
 
     footer {
@@ -125,36 +121,14 @@
     }
 
     @media (max-width: 540px) {
-      nav {
-        min-height: 60px;
-        justify-content: flex-end;
-        padding: 12px 0;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
       .hero {
         padding: 65px 0 55px;
-      }
-
-      section {
-        padding: 38px 0;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <nav class="container">
-      <div class="nav-links">
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
   <main class="container">
     <div class="hero" id="home">
       <div class="eyebrow">Statistics · Research · Academia</div>
@@ -181,28 +155,40 @@
         This website provides information about my research
         interests, academic background, and professional activities.
       </p>
-    </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
+      <div class="social-links">
+        <a class="icon-link"
+           href="mailto:anupamad23@iitk.ac.in"
+           aria-label="Email Anupama Das"
+           title="Email me">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.7"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="m3 7 9 6 9-6"/>
+          </svg>
+        </a>
 
-      <p>
-        I welcome academic correspondence and opportunities
-        for research discussion and collaboration.
-      </p>
-
-      <p>
-        Email:
-        <span class="placeholder">Contact details to be added</span>
-      </p>
-
-      <p>
-        GitHub:
-        <a href="https://github.com/dasanupama"
+        <a class="icon-link"
+           href="https://github.com/dasanupama"
            target="_blank"
-           rel="noopener noreferrer">dasanupama</a>
-      </p>
-    </section>
+           rel="noopener noreferrer"
+           aria-label="GitHub profile"
+           title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 24 24"
+               fill="currentColor"
+               aria-hidden="true">
+            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.3-1.24-1.65-1.24-1.65-1.01-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.2 3.26.92.1-.72.39-1.2.71-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.12-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.12 2.96.71.78 1.14 1.78 1.14 3 0 4.29-2.62 5.24-5.11 5.51.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </main>
 
   <footer>
