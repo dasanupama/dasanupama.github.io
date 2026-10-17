@@ -4,17 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academic website of Anupama Das, PhD research scholar in Statistics at IIT Kanpur.">
+  <meta name="description" content="Academic website of Anupama Das, PhD research scholar in the Department of Statistics and Data Science at IIT Kanpur.">
+  <meta name="theme-color" content="#fbfaf8">
   <title>Anupama Das | Academic Website</title>
 
   <style>
     :root {
+      color-scheme: light;
       --background: #fbfaf8;
       --surface: #ffffff;
       --text: #292d32;
       --muted: #686e76;
       --accent: #496b61;
       --line: #e8e5df;
+    }
+
+    body.dark-mode {
+      color-scheme: dark;
+      --background: #171a19;
+      --surface: #222725;
+      --text: #eeefec;
+      --muted: #b1b8b3;
+      --accent: #a4c7b7;
+      --line: #383f3b;
     }
 
     * {
@@ -32,6 +44,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
       line-height: 1.8;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
     a {
@@ -51,7 +64,8 @@
     /* Top navigation */
     header {
       border-bottom: 1px solid var(--line);
-      background: rgba(251, 250, 248, 0.96);
+      background: var(--background);
+      transition: background 0.25s ease;
     }
 
     nav {
@@ -59,10 +73,12 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      gap: 24px;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 24px;
       font-size: 0.92rem;
     }
@@ -73,6 +89,30 @@
 
     .nav-links a:hover {
       color: var(--accent);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+    }
+
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
     }
 
     /* Homepage layout */
@@ -89,14 +129,6 @@
 
     .hero-content {
       min-width: 0;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
     }
 
     h1 {
@@ -118,7 +150,6 @@
     }
 
     /* Profile photograph */
-    
     .profile-photo {
       display: block;
       width: 280px;
@@ -129,11 +160,12 @@
       border: 2px solid var(--line);
       margin-top: 60px;
     }
-    
-    /* Email icon */
+
+    /* Email icon below photograph */
     .social-links {
       display: flex;
       align-items: center;
+      justify-content: center;
       margin-top: 30px;
     }
 
@@ -154,7 +186,7 @@
 
     .icon-link:hover {
       background: var(--accent);
-      color: #ffffff;
+      color: var(--background);
       border-color: var(--accent);
       text-decoration: none;
       transform: translateY(-2px);
@@ -166,7 +198,8 @@
     }
 
     .icon-link:focus-visible,
-    .nav-links a:focus-visible {
+    .nav-links a:focus-visible,
+    .theme-toggle:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 4px;
     }
@@ -199,10 +232,28 @@
         width: 200px;
         height: 200px;
         justify-self: start;
+        margin-top: 0;
+      }
+
+      .social-links {
+        justify-content: flex-start;
       }
 
       h1 {
         font-size: clamp(2.6rem, 10vw, 3.5rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      body,
+      header,
+      .icon-link,
+      .theme-toggle {
+        transition: none;
       }
     }
   </style>
@@ -214,8 +265,30 @@
       <div class="nav-links">
         <a href="cv.pdf"
            target="_blank"
-           rel="noopener noreferrer">CV </a>
+           rel="noopener noreferrer">CV</a>
       </div>
+
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+        title="Switch to dark mode">
+
+        <!-- Moon icon -->
+        <svg id="theme-icon"
+             xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.8"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>
+        </svg>
+      </button>
     </nav>
   </header>
 
@@ -224,12 +297,14 @@
       <div class="hero-layout">
 
         <div class="hero-content">
-
           <h1>Anupama Das</h1>
 
           <p class="intro">
-            I am a PhD research scholar in Statistics at the
-            Indian Institute of Technology Kanpur, supervised by
+            I am a PhD research scholar in the
+            <a href="https://iitk.ac.in/sds/"
+               target="_blank"
+               rel="noopener noreferrer">Department of Statistics and Data Science</a>
+            at the Indian Institute of Technology Kanpur, supervised by
             <a href="https://dvats.github.io/"
                target="_blank"
                rel="noopener noreferrer">Prof. Dootika Vats</a>.
@@ -247,6 +322,16 @@
             This website provides information about my research
             interests, academic background, and professional activities.
           </p>
+        </div>
+
+        <div class="profile-column">
+          <img
+            class="profile-photo"
+            src="picture.jpg"
+            alt="Anupama Das"
+            width="280"
+            height="280"
+          >
 
           <div class="social-links">
             <a class="icon-link"
@@ -268,14 +353,6 @@
           </div>
         </div>
 
-        <img
-          class="profile-photo"
-          src="picture.jpg"
-          alt="Anupama Das"
-          width="240"
-          height="300"
-        >
-
       </div>
     </div>
   </main>
@@ -285,5 +362,47 @@
       © 2026 Anupama Das · Academic website
     </div>
   </footer>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    const themeColor = document.querySelector(
+      'meta[name="theme-color"]'
+    );
+
+    const moonIcon = `
+      <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>
+    `;
+
+    const sunIcon = `
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2"/>
+      <path d="M12 20v2"/>
+      <path d="m4.93 4.93 1.42 1.42"/>
+      <path d="m17.65 17.65 1.42 1.42"/>
+      <path d="M2 12h2"/>
+      <path d="M20 12h2"/>
+      <path d="m6.35 17.65-1.42 1.42"/>
+      <path d="m19.07 4.93-1.42 1.42"/>
+    `;
+
+    themeToggle.addEventListener("click", function () {
+      const isDark = document.body.classList.toggle("dark-mode");
+
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
+      themeToggle.setAttribute(
+        "title",
+        isDark ? "Switch to light mode" : "Switch to dark mode"
+      );
+
+      themeIcon.innerHTML = isDark ? sunIcon : moonIcon;
+
+      themeColor.content = isDark ? "#171a19" : "#fbfaf8";
+    });
+  </script>
 </body>
 </html>
