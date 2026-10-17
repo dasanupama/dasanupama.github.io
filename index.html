@@ -5,28 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Academic website of Anupama Das, PhD research scholar in the Department of Statistics and Data Science at IIT Kanpur.">
-  <meta name="theme-color" content="#fbfaf8">
+  <meta name="theme-color" content="#FCF8F7">
   <title>Anupama Das</title>
 
   <style>
     :root {
       color-scheme: light;
-      --background: #fbfaf8;
-      --surface: #ffffff;
-      --text: #292d32;
-      --muted: #686e76;
-      --accent: #496b61;
-      --line: #e8e5df;
+      --background: #FCF8F7;
+      --surface: #FFFFFF;
+      --text: #3D3034;
+      --muted: #85767A;
+      --accent: #A56878;
+      --line: #EADDE0;
     }
 
     body.dark-mode {
       color-scheme: dark;
-      --background: #171a19;
-      --surface: #222725;
-      --text: #eeefec;
-      --muted: #b1b8b3;
-      --accent: #a4c7b7;
-      --line: #383f3b;
+      --background: #251C20;
+      --surface: #32252B;
+      --text: #F5EBEE;
+      --muted: #C7B5BB;
+      --accent: #D9A1B0;
+      --line: #49343D;
     }
 
     * {
@@ -53,7 +53,7 @@
     }
 
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     .container {
@@ -64,13 +64,15 @@
     /* Top navigation */
     header {
       border-bottom: 1px solid var(--line);
-      background: #DCE7DD;
+      background: #F1E2E4;
       transition: background 0.25s ease;
     }
+
     body.dark-mode header {
-      background: #26372E;
-      border-bottom-color: #39473F;
+      background: #32252B;
+      border-bottom-color: var(--line);
     }
+
     nav {
       min-height: 64px;
       display: flex;
@@ -92,6 +94,7 @@
 
     .nav-links a:hover {
       color: var(--accent);
+      text-decoration: none;
     }
 
     .theme-toggle {
@@ -404,7 +407,7 @@
 
       themeIcon.innerHTML = isDark ? sunIcon : moonIcon;
 
-      themeColor.content = isDark ? "#171a19" : "#fbfaf8";
+      themeColor.content = isDark ? "#251C20" : "#FCF8F7";
     });
   </script>
 </body>
