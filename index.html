@@ -48,6 +48,34 @@
       margin: auto;
     }
 
+    /* Top navigation */
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 250, 248, 0.96);
+    }
+
+    nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Homepage introduction */
     .hero {
       padding: 100px 0 80px;
     }
@@ -80,6 +108,7 @@
       margin-bottom: 18px;
     }
 
+    /* Email and GitHub icons */
     .social-links {
       display: flex;
       align-items: center;
@@ -113,6 +142,7 @@
       height: 19px;
     }
 
+    /* Footer */
     footer {
       padding: 28px 0 40px;
       border-top: 1px solid var(--line);
@@ -120,7 +150,16 @@
       font-size: 0.85rem;
     }
 
+    /* Mobile layout */
     @media (max-width: 540px) {
+      nav {
+        min-height: 56px;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
       .hero {
         padding: 65px 0 55px;
       }
@@ -129,6 +168,16 @@
 </head>
 
 <body>
+  <header>
+    <nav class="container">
+      <div class="nav-links">
+        <a href="cv.pdf"
+           target="_blank"
+           rel="noopener noreferrer">CV ↗</a>
+      </div>
+    </nav>
+  </header>
+
   <main class="container">
     <div class="hero" id="home">
       <div class="eyebrow">Statistics · Research · Academia</div>
@@ -157,6 +206,7 @@
       </p>
 
       <div class="social-links">
+        <!-- Email icon -->
         <a class="icon-link"
            href="mailto:anupamad23@iitk.ac.in"
            aria-label="Email Anupama Das"
@@ -174,6 +224,7 @@
           </svg>
         </a>
 
+        <!-- GitHub icon -->
         <a class="icon-link"
            href="https://github.com/dasanupama"
            target="_blank"
